@@ -15,19 +15,22 @@ int stu_vputs(unsigned int nbr, ...)
     va_list args;
     char *str;
     int j;
+    int k;
 
     i = 0;
     j = 0;
+    k = 0;
     va_start(args, nbr);
-    while(i <= nbr) {
+    while(i < nbr) {
         str = va_arg(args, char *);
         while (str[j] != '\0') {
             write(1, &str[j], 1);
             j += 1;
+            k += 1;
         }
         write(1, "\n", 1);
         i += 1;
-    }
-    va_end(args);
-    return(j);
+        j = 0;
+    } va_end(args);
+    return(k);
 }
