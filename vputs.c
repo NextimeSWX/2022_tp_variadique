@@ -31,6 +31,8 @@ int stu_vputs(unsigned int nbr, ...)
         write(1, "\n", 1);
         i += 1;
         j = 0;
-    } va_end(args);
+    } if (!str)
+          return (-1);
+    va_end(args);
     return(k);
 }
